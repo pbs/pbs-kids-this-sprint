@@ -46,7 +46,7 @@ const buildCsv = async () => {
 
   const csv = parse(allStories);
 
-  fs.writeFile('stories.csv', csv, function(err) {
+  fs.writeFile('sprint-stories.csv', csv, function(err) {
     if (err) {
       return console.log(err);
     }
