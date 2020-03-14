@@ -1,0 +1,22 @@
+{
+  "name": "this-sprint",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node -r dotenv/config src/js/buildCsv.js",
+    "lint": "eslint -c .eslintrc.js --fix src/**/*.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "json2csv": "^4.5.4",
+    "node-json-xlsx": "^0.2.2",
+    "superagent": "^5.2.2"
+  },
+  "devDependencies": {
+    "@pbs/eslint-config-pbs-kids": "^1.0.2",
+    "eslint": "^6.8.0"
+  }
+}
