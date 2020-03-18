@@ -1,4 +1,5 @@
 const superagent = require('superagent');
+///9u8u8u875tt5tprojects/{project_id}/releases/{id}
 
 class Pivotal {
   constructor(token) {
@@ -29,9 +30,11 @@ class Pivotal {
     const accounts = me.accounts;
     for (let i = 0; i < accounts.length; i++) {
       const memberships = await this.getAccountMemberships(accounts[i].id);
-      for (let j = 0; j < memberships.length; j++) {
-        if (memberships[j].id === personId) {
-          return memberships[j];
+      if(memberships !== undefined){
+        for (let j = 0; j < memberships.length; j++) {
+          if (memberships[j].id === personId) {
+            return memberships[j];
+          }
         }
       }
     }
@@ -49,9 +52,12 @@ class Pivotal {
     return await this.request(`projects`);
   }
 
-  async getStory(storyId) {
+  async getStory(storyId, fields = "") {
+    if(fields !== ""){
+      fields = "?fields=:" + fields;
+    }
     console.log(`getStory(${storyId})`);
-    return await this.request(`stories/${storyId}`);
+    return await this.request(`stories/${storyId}`+fields);
   }
 
   async request(path) {
