@@ -52,12 +52,10 @@ class Pivotal {
     return await this.request(`projects`);
   }
 
-  async getStory(storyId, fields = "") {
-    if(fields !== ""){
-      fields = "?fields=:" + fields;
-    }
+  async getStory(storyId, options) {
+    let optionsString = options.field ? "?fields=:"+options.fields.join() : '';
     console.log(`getStory(${storyId})`);
-    return await this.request(`stories/${storyId}`+fields);
+    return await this.request(`stories/${storyId}`+ optionsString);
   }
 
   async request(path) {
@@ -90,6 +88,7 @@ class Pivotal {
       setTimeout(resolve, ms);
     });
   }
+
 }
 
 module.exports = Pivotal;
