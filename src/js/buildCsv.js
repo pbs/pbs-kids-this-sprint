@@ -35,7 +35,6 @@ const buildCsv = async () => {
       delete story.owned_by_id;
       delete story.project_id;
       delete story.description;
-      console.log("added", story)
       allStories.push(story);
     }
   }
