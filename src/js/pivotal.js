@@ -52,6 +52,12 @@ class Pivotal {
     return await this.request(`projects`);
   }
 
+  async getReleases(project_id) {
+    console.log(`getProjects(${project_id})`);
+    return await this.request(`/projects/${project_id}/releases`);
+  }
+  
+
   async getStory(storyId, options) {
     let optionsString = options.field ? "?fields=:"+options.fields.join() : '';
     console.log(`getStory(${storyId})`);
