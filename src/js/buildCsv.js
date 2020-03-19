@@ -18,16 +18,16 @@ const buildCsv = async () => {
 
     for (let j = 0; j < stories.length; j++) {
       console.log(`\n----- ${i} :: ${j} -----\n`);
-      const story = await pivotal.getStory(stories[j].id, {fields:"default,owners,project,requested_by"});
+      const story = await pivotal.getStory(stories[j].id, { fields: 'default,owners,project,requested_by' });
 
-      story.project = story.project ? story.project.name :  null;
+      story.project = story.project ? story.project.name : null;
 
 
       story.owners = story.owners ? story.owners.map((owner) => owner.name).join(', ') : '';
 
       story.requestor = story.requested_by ? story.requested_by.name : null;
       delete story.requested_by;
-      
+
       story.labels = story.labels ? story.labels.map((label) => label.name).join(', ') : '';
 
       delete story.requested_by_id;
