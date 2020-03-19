@@ -1,5 +1,4 @@
 const superagent = require('superagent');
-///9u8u8u875tt5tprojects/{project_id}/releases/{id}
 
 class Pivotal {
   constructor(token) {
