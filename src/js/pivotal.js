@@ -58,7 +58,7 @@ class Pivotal {
   
 
   async getStory(storyId, options) {
-    let optionsString = options.field ? "?fields=:"+options.fields.join() : '';
+    let optionsString = options.fields ? "?fields=:"+options.fields.join() : '';
     console.log(`getStory(${storyId})`);
     return await this.request(`stories/${storyId}`+ optionsString);
   }
