@@ -29,9 +29,11 @@ class Pivotal {
     const accounts = me.accounts;
     for (let i = 0; i < accounts.length; i++) {
       const memberships = await this.getAccountMemberships(accounts[i].id);
-      for (let j = 0; j < memberships.length; j++) {
-        if (memberships[j].id === personId) {
-          return memberships[j];
+      if (memberships !== undefined) {
+        for (let j = 0; j < memberships.length; j++) {
+          if (memberships[j].id === personId) {
+            return memberships[j];
+          }
         }
       }
     }
@@ -49,9 +51,16 @@ class Pivotal {
     return await this.request(`projects`);
   }
 
-  async getStory(storyId) {
+  async getReleases(projectId) {
+    console.log(`getProjects(${projectId})`);
+    return await this.request(`/projects/${projectId}/releases`);
+  }
+
+
+  async getStory(storyId, options) {
+    const optionsString = options.fields ? '?fields=:'+options.fields.join() : '';
     console.log(`getStory(${storyId})`);
-    return await this.request(`stories/${storyId}`);
+    return await this.request(`stories/${storyId}`+ optionsString);
   }
 
   async request(path) {
