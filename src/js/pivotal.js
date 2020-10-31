@@ -48,7 +48,6 @@ class Pivotal {
     return await this.request(`/projects/${projectId}/releases`);
   }
 
-
   async getStory(storyId, options) {
     return await this.request(`stories/${storyId}`, options);
   }

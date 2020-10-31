@@ -1,7 +1,7 @@
 const Pivotal = require('./pivotal.js');
 const fs = require('fs');
 const { parse } = require('json2csv');
-const sprintLabel = 'sprint 116';
+const sprintLabel = 'sprint planning 133';
 
 const pivotal = new Pivotal(process.env.PIVOTAL_TOKEN);
 
