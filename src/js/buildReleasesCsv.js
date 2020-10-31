@@ -26,7 +26,7 @@ const buildReleasesCsv = async () => {
     for (let j = 0; j < stories.length; j++) {
       console.log(`\n----- ${i} :: ${j} -----\n`);
       const story = await pivotal.getStory(stories[j].id, {
-        fields: [ 'default', 'owners', 'project', 'requested_by' ],
+        fields: [ ':default', 'owners', 'project', 'requested_by' ],
       });
 
       story.project = story.project ? story.project.name : null;
