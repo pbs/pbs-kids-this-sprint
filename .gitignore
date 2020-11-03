@@ -1,4 +1,6 @@
+deploy
 node_modules
+
 .env
 .DS_Store
 *.csv

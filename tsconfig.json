@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "allowJs": false,
+    "allowSyntheticDefaultImports": true,// Allow imports from modules with no exports, e.g. json files.
+    "experimentalDecorators": true,
+    "lib": ["es2018", "dom"],
+    "module": "es6",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "strict": true,
+    "target": "es5",
+  },
+  "exclude": [
+    "./src/js/cv/*"
+  ],
+  "include": [
+    "./src/js/**/*"
+  ]
+}
