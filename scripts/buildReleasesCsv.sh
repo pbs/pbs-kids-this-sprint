@@ -4,4 +4,4 @@ IFS=$'\n\t'
 
 npm ci
 
-node -r dotenv/config ./src/js/buildReleasesCsv.js;
+node -r dotenv/config ./src/js/cv/buildReleasesCsv.js;
