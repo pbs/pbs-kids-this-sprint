@@ -3,16 +3,17 @@ import Pivotal from './pivotal';
 import Vue, { CreateElement, VNode } from 'vue';
 
 function onDomReady(): void {
-  console.log('onDomReady()', { Build });
+  console.log('onDomReady()', { env });
 
   // Don't need production tip on Release builds.
-  Vue.config.productionTip = Build.debugMode;
+  Vue.config.productionTip = env.debugMode;
 
-  if (!Build.token) {
+  if (!env.token) {
     throw Error('No token found in ".env"');
   }
 
-  window.pivotal = new Pivotal(Build.token);
+  // Instantiate Pivotal global.
+  window.pivotal = new Pivotal(env.token, 'PBS_KIDS_THIS_SPRINT::');
 
   // Start the Vue app.
   new Vue({

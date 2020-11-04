@@ -9,15 +9,16 @@ module.exports = {
     '@vue/typescript/recommended'
   ],
   globals: {
-    Build: 'readonly',
-    Racing: 'readonly',
+    env: 'readonly',
   },
   parserOptions: {
     ecmaVersion: 2020
   },
   rules: {
+    '@typescript-eslint/interface-name-prefix' : 'off',
+    'brace-style': ["error", "stroustrup"],
+    'new-cap' : 'off',
     'no-console': 'off',
     'prefer-const': 'off',
-    "@typescript-eslint/interface-name-prefix" : 'off',
   }
 }

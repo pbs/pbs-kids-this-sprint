@@ -162,9 +162,9 @@ declare namespace Pivotal {
     kind: string;
   }
 
-  type AccountMembership = {
+  export type AccountMembership = {
     id: number;
-    person_id: number;
+    person: Person;
     account_id: number;
     created_at: datetime;
     updated_at: datetime;
@@ -278,5 +278,13 @@ declare namespace Pivotal {
     stories: StoriesSearchResult;
     epics: EpicSearchResult;
     kind: string;
+  }
+
+  export type Workspace = {
+    id: number;
+    kind: string;
+    name: string;
+    person_id: number;
+    project_ids: number[];
   }
 }

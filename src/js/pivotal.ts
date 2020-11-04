@@ -8,28 +8,37 @@ export default class Pivotal {
   private token: string;
   private cache: LocalStorage;
 
-  constructor(token: string) {
+  constructor(token: string, localStorageKeyPrefix: string) {
     this.token = token;
-    this.cache = new LocalStorage('PBS_KIDS_THIS_SPRINT::');
+    this.cache = new LocalStorage(localStorageKeyPrefix);
   }
 
   async getAccountMemberships(accountId: number): Promise <Pivotal.AccountMembership[]> {
-    console.log(`getAccountMemberships(${accountId})`);
-    return await this.request(`accounts/${accountId}/memberships`);
+    let memberships = await this.request(`accounts/${accountId}/memberships`);
+
+    if (!memberships) {
+      throw Error(`No Members Found In Account ${env.account}`);
+    }
+
+    return memberships as Pivotal.AccountMembership[];
   }
 
   async getMe(): Promise <Pivotal.Me> {
-    console.log(`getMe()`);
-    return await this.request(`me`);
+    let me: Pivotal.Me | undefined = await this.request(`me`);
+
+    if (!me) {
+      throw Error(`Current Owner Of Account "${env.account}" Not Found`);
+    }
+
+    return me;
   }
 
   async getStoryOwners(projectId: string, storyId: string): Promise <Pivotal.Person[]> {
-    console.log(`getStoryOwners(${projectId}, ${storyId})`);
-    return await this.request(`projects/${projectId}/stories/${storyId}/owners`);
+    let owners = await this.request(`projects/${projectId}/stories/${storyId}/owners`);
+    return (owners || []) as Pivotal.Person[];
   }
 
-  async getAccountMembership(personId: number): Promise <Pivotal.AccountMembership | undefined> {
-    console.log(`getAccountMembership(${personId})`);
+  async getPerson(personId: number): Promise <Pivotal.Person | undefined> {
     const me = await this.getMe();
     const accounts = me.accounts;
 
@@ -39,7 +48,7 @@ export default class Pivotal {
       if (memberships !== undefined) {
         for (let j = 0; j < memberships.length; j++) {
           if (memberships[j].id === personId) {
-            return memberships[j];
+            return memberships[j].person;
           }
         }
       }
@@ -48,57 +57,78 @@ export default class Pivotal {
     return undefined;
   }
 
-  async getProject(projectId: string): Promise <Pivotal.Project> {
-    console.log(`getProject(${projectId})`);
-    return await this.request(`projects/${projectId}`);
+  async getProject(projectId: string): Promise <Pivotal.Project | undefined> {
+    let project = await this.request(`projects/${projectId}`);
+
+    if (!project) {
+      throw Error(`Project "${projectId}" Not Found`);
+    }
+
+    return project as Pivotal.Project;
   }
 
   async getProjects(): Promise <Pivotal.Project[]> {
-    console.log(`getProjects()`);
-    return await this.request(`projects`);
+    let projects = await this.request(`projects`);
+    return (projects || []) as Pivotal.Project[];
   }
 
   async getReleases(projectId: string): Promise <Pivotal.Release[]> {
-    console.log(`getProjects(${projectId})`);
-    return await this.request(`/projects/${projectId}/releases`);
+    let releases = await this.request(`projects/${projectId}/releases`);
+    return (releases || []) as Pivotal.Release[];
   }
 
-  async getStory(storyId: string, options: {fields: string[]}): Promise <Pivotal.Story[]> {
+  async getStory(storyId: string, options: {fields: string[]}): Promise <Pivotal.Story> {
     const optionsString = options.fields ? '?fields=:' + options.fields.join() : '';
-    console.log(`getStory(${storyId})`);
+    let story = await this.request(`stories/${storyId}`+ optionsString);
 
-    return await this.request(`stories/${storyId}`+ optionsString);
+    if (!story) {
+      throw Error(`Story "${storyId}" Not Found`);
+    }
+
+    return story as Pivotal.Story;
   }
 
-  async request<T>(path: string): Promise <T> {
-    console.log(`request(${path})`);
+  async getWorkspace(workspaceId: number): Promise<Pivotal.Workspace> {
+    let workspace = await this.request(`my/workspaces/${workspaceId}`);
 
+    if (!workspace) {
+      throw Error(`Workspace "${env.workspaceId}" Not Found`);
+    }
+
+    return workspace as Pivotal.Workspace;
+  }
+
+  async request<T>(path: string, delayMS = 0): Promise <T | undefined> {
     const cachedResponse: T | undefined = this.cache.get(path);
 
+    // If cached, then return the result immediately.
     if (cachedResponse) {
       return cachedResponse;
     }
 
-    return superagent.get(Pivotal.BASE_URL + path)
-      .set({
-        'X-TrackerToken': this.token,
-      })
-      .then((response) => {
-        this.cache.set(path, response.body);
-        return response.body;
-      })
-      .catch(async (err: Error) => {
-        if (err.message === 'Too Many Requests') {
-          console.log('TOO MANY REQUESTS');
-          await this.sleep(10 * SECONDS);
-          return await this.request(path);
-        }
-      });
+    // Rate limit if requested.
+    if (delayMS > 0) {
+      await this.sleep(delayMS);
+    }
+
+    try {
+      let headers = { 'X-TrackerToken': this.token };
+      let response = await superagent.get(Pivotal.BASE_URL + path).set(headers);
+      this.cache.set(path, response.body);
+
+      return response.body;
+    }
+    catch (err) {
+      if (/^Request has been terminated/.test(err.message)) {
+        console.log('err: TOO MANY REQUESTS');
+        await this.sleep(10 * SECONDS);
+        return await this.request(path);
+      }
+    }
   }
 
-  async search(projectId: string, query: string): Promise <Pivotal.SearchResultContainer> {
-    console.log(`search(${projectId}, ${query})`);
-    return await this.request(`projects/${projectId}/search?query=${encodeURI(query)}`);
+  async search(projectId: number, query: string, delayMS = 0): Promise <Pivotal.SearchResultContainer | undefined> {
+    return await this.request(`projects/${projectId}/search?query=${encodeURI(query)}`, delayMS);
   }
 
   async sleep(ms: number): Promise<void> {

@@ -1,3 +1,31 @@
 body {
+  margin: 0;
 
+  #app {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+
+    min-height: 100%;
+    position: absolute;
+
+    .person {
+      border: solid 2px #0070ff;
+      min-width: 250px;
+      padding: 0 10px;
+
+      .person_name {
+        font-size: 1.5em;
+      }
+
+      .story {
+        .story_name {
+          font-size: 1em;
+        }
+      }
+    }
+  }
 }

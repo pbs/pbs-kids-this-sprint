@@ -57,10 +57,13 @@ module.exports = (env, { watch }) => {
       // }),
       new VueLoaderPlugin(),
       new webpack.DefinePlugin({
-        'Build': JSON.stringify({
+        'env': JSON.stringify({
           debugMode: !!env.dev,
           version: pkg.version,
           token: process.env.PIVOTAL_TOKEN,
+          account: process.env.PIVOTAL_ACCOUNT,
+          usernames: process.env.USERNAMES,
+          workspaceId: process.env.WORKSPACE_ID,
         })
       }),
       new HtmlWebpackPlugin({
