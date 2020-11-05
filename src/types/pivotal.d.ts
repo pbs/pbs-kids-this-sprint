@@ -273,7 +273,7 @@ declare namespace Pivotal {
     kind: string;
   }
 
-  export type SearchResultContainer = {
+  export type SearchResultContainer = undefined | {
     query: string;
     stories: StoriesSearchResult;
     epics: EpicSearchResult;

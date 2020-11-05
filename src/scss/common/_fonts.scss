@@ -1,0 +1,95 @@
+@function font-source-declaration(
+  $font-family,
+  $file-path,
+  $file-formats,
+  $font-url) {
+
+  $src: ();
+
+  $formats-map: (
+    eot:   "#{$file-path}.eot?#iefix" format("embedded-opentype"),
+    woff:  "#{$file-path}.woff" format("woff"),
+    ttf:   "#{$file-path}.ttf" format("truetype"),
+    svg:   "#{$file-path}.svg##{$font-family}" format("svg")
+  );
+
+  @each $key, $values in $formats-map {
+    @if contains($file-formats, $key) {
+      $file-path: nth($values, 1);
+      $font-format: nth($values, 2);
+      $src: append($src, url($file-path) $font-format, comma);
+    }
+  }
+
+  @return $src;
+}
+
+@mixin font-face(
+  $font-family,
+  $file-path,
+  $weight: normal,
+  $style: normal,
+  $file-formats: eot woff ttf svg) {
+
+  @font-face {
+    font-family: $font-family;
+    font-style: $style;
+    font-weight: $weight;
+
+    src: font-source-declaration(
+      $font-family,
+      $file-path,
+      $file-formats,
+      url
+    );
+  }
+}
+
+@include font-face("Colfax-Regular-Italic", "/fonts/ColfaxWebRegularItalic", $file-formats: eot woff);
+
+@include font-face("Colfax-Medium", "/fonts/ColfaxWebMedium", $file-formats: eot woff);
+@include font-face("Colfax-Medium-Italic", "/fonts/ColfaxWebMediumItalic", $file-formats: eot woff);
+
+@include font-face("Colfax-Bold", "/fonts/ColfaxWebBold", $file-formats: eot woff);
+@include font-face("Colfax-Bold-Italic", "/fonts/ColfaxWebBoldItalic", $file-formats: eot woff);
+
+
+@include font-face("PBS_KIDS_Headline", "/fonts/pbskidsheadline-regular-webfont", $file-formats: eot svg woff ttf);
+@include font-face("PBS_KIDS_Headline_Bold", "/fonts/pbskidsheadline-bold-webfont", $file-formats: eot svg woff ttf);
+
+h1{
+	margin-bottom: 0px;
+	margin-top: 0px;
+}
+
+@mixin kidsfont($style: normal, $weight: normal, $size: 16px, $lineHeight: 1.2) {
+  font-family: PBS_KIDS_Headline, Arial, Helvetica, sans-serif;
+  font-size: $size;
+  font-weight: $weight;
+  font-style: $style;
+  line-height: $lineHeight;
+  letter-spacing: 1px;
+}
+
+@mixin kidsfontBold($style: normal, $weight: normal, $size: 16px, $lineHeight: 1.2) {
+	@include kidsfont($style, $weight, $size, $lineHeight);
+	font-family: PBS_KIDS_Headline_Bold, Arial, Helvetica, sans-serif;
+}
+
+@mixin bodyfont($style: normal, $weight: normal, $size: 16px, $lineHeight: 1.4) {
+  font-family: Colfax-Regular, Arial, Helvetica, sans-serif;
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $lineHeight;
+  font-style: $style;
+}
+
+@mixin bodyfontMedium($style: normal, $weight: normal, $size: 16px, $lineHeight: 1.4) {
+	@include bodyfont($style, $weight, $size, $lineHeight);
+	font-family: Colfax-Medium, Arial, Helvetica, sans-serif;
+}
+
+@mixin bodyfontBold($style: normal, $weight: bold, $size: 16px, $lineHeight: 1.4) {
+	@include bodyfont($style, $weight, $size, $lineHeight);
+	font-family: Colfax-Bold, Arial, Helvetica, sans-serif;
+}

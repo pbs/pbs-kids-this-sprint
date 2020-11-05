@@ -1,0 +1,59 @@
+@import './common/_index';
+
+.story {
+  $iconHeight: 16px;
+  $padding: 0.5em;
+
+  position: relative;
+  padding: $padding;
+  padding-left: calc(#{2 * $padding} + #{$iconHeight});
+  min-height: $iconHeight;
+  // border-bottom: solid 1px;
+  // background: $parentsBarSeafoam;
+  // color: $parentsTextSeafoam;
+
+  background-color: #f4f4f4;
+  border-bottom: 1px solid #ddd;
+
+  .story_name {
+    margin: 0;
+    @include bodyfont($size: 1em, $lineHeight: 1.4);
+  }
+
+  .story_description {
+    display: none;
+    background: $parentsNavSeafoam;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: $iconHeight;
+    height: $iconHeight;
+    top: $padding;
+    left: $padding;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  &.feature::before {
+    background-image: url('/images/icon-feature.png');
+  }
+
+  &.bug::before {
+    background-image: url('/images/icon-bug.png');
+  }
+
+  &.chore::before {
+    background-image: url('/images/icon-chore.png');
+  }
+
+  &.release::before {
+    background-image: url('/images/icon-release.png');
+  }
+
+  &.selected .story_description {
+    display: block;
+  }
+}

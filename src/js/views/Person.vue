@@ -1,18 +1,22 @@
 <template>
   <section class="person">
     <h2 class="person_name">{{person.name}}</h2>
-
-    <article class="story" v-for='story in stories' :key='story.index'>
-      <h3 class="story_name">{{story.name}}</h3>
-      <!-- <p class="story_description">{{story.description}}</p> -->
-    </article>
+    <div class="stories-container">
+      <Story :story="story" v-for='story in stories' :key='story.index' />
+    </div>
   </section>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
+import Story from './Story.vue';
 
-@Component
+@Component({
+  components: {
+    Story,
+  },
+})
+
 export default class Person extends Vue {
   @Prop({ required: true }) readonly person!: Pivotal.Person;
   @Prop({ required: true }) readonly projectIds!: number[];
@@ -21,7 +25,6 @@ export default class Person extends Vue {
 
   constructor() {
     super();
-
     this.stories = [];
   }
 
@@ -31,7 +34,7 @@ export default class Person extends Vue {
               + `+AND+(owner:"${this.person.initials}")`;
 
     for (let id of this.projectIds) {
-      let searchResults = await window.pivotal.search(id, query, 1000);
+      let searchResults = await this.$pivotal.search(id, query, 30 * MINUTES, 1 * SECONDS);
 
       if (searchResults) {
         this.stories = this.stories.concat(searchResults.stories.stories);

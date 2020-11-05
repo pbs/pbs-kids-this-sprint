@@ -1,4 +1,4 @@
-// const CopyPlugin = require('copy-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 const path = require('path');
 const pkg = require('./package.json');
 const dotenv = require('dotenv');
@@ -50,27 +50,31 @@ module.exports = (env, { watch }) => {
     },
 
     plugins: [
-      // new CopyPlugin({
-      //   patterns: [
-      //     { from: 'static' }
-      //   ],
-      // }),
+      new CopyPlugin({
+        patterns: [
+          { from: 'static' }
+        ],
+      }),
       new VueLoaderPlugin(),
       new webpack.DefinePlugin({
-        'env': JSON.stringify({
+        ENV: JSON.stringify({
           debugMode: !!env.dev,
           version: pkg.version,
           token: process.env.PIVOTAL_TOKEN,
           account: process.env.PIVOTAL_ACCOUNT,
           usernames: process.env.USERNAMES,
           workspaceId: process.env.WORKSPACE_ID,
-        })
+        }),
+        SECONDS: 1000,
+        MINUTES: 60000,
+        HOURS: 360000,
+        DAYS: 8640000,
       }),
       new HtmlWebpackPlugin({
         title: pkg.title,
         name: pkg.name,
         description: pkg.description,
-        template: 'templates/index.html'
+        template: 'src/templates/index.html'
       })
     ],
 

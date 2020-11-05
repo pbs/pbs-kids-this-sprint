@@ -9,7 +9,11 @@ module.exports = {
     '@vue/typescript/recommended'
   ],
   globals: {
-    env: 'readonly',
+    ENV: 'readonly',
+    SECONDS: 'readonly',
+    MINUTES: 'readonly',
+    HOURS: 'readonly',
+    DAYS: 'readonly',
   },
   parserOptions: {
     ecmaVersion: 2020

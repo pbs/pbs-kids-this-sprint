@@ -27,18 +27,18 @@ export default class App extends Vue {
 
   async mounted(): Promise<void> {
     // Get projects.
-    let workspace = await window.pivotal.getWorkspace(env.workspaceId);
+    let workspace = await this.$pivotal.getWorkspace(ENV.workspaceId, 1 * DAYS);
     this.projectIds = workspace.project_ids;
 
     if (!this.projectIds) {
-      throw Error(`No Projects Found In Workspace ${env.workspaceId}`);
+      throw Error(`No Projects Found In Workspace ${ENV.workspaceId}`);
     }
 
     // Get members.
-    let memberships = await window.pivotal.getAccountMemberships(env.account);
+    let memberships = await this.$pivotal.getAccountMemberships(ENV.account, 1 * DAYS);
 
     for (let membership of memberships) {
-      if (env.usernames.includes(membership.person.username)) {
+      if (ENV.usernames.includes(membership.person.username)) {
         this.people.push(membership.person);
       }
     }

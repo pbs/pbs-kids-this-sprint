@@ -14,6 +14,7 @@
     "./src/js/cv/*"
   ],
   "include": [
-    "./src/js/**/*"
+    "./src/js/**/*",
+    "./src/types/*.d.ts",
   ]
 }
