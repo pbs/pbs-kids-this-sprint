@@ -247,7 +247,7 @@ declare namespace Pivotal {
     pull_request_ids: number[];
     cicd_event_ids: number[];
     branch_ids: number[];
-    blocker_ids: number[];
+    blocker_ids?: number[];
     follower_ids: number[];
     comment_ids: number[];
     created_at: datetime;

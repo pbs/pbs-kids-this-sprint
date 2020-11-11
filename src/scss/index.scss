@@ -7,15 +7,49 @@ body {
   background-color: #212121;
 
   #app {
-    @include bodyfont($size: 12px, $lineHeight: 1.4);
+    // @include bodyfont($size: 12px, $lineHeight: 1.4);
 
-    display: flex;
-    justify-content: flex-start;
-    align-items: stretch;
+    $headerHeight: 4em;
 
-    height: 100%;
-    position: absolute;
-    padding: 0.5em;
-    box-sizing: border-box;
+    .worspace-header {
+      $topPadding: 0.75em;
+
+      color: #ffffff;
+      background-color: $KidsMagentaDark;
+      height: $headerHeight;
+      padding: $topPadding 1.5em;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      box-sizing: border-box;
+
+      .workspace-name {
+        @include kidsfont($size: #{$headerHeight - 2 * $topPadding}, $lineHeight: 1);
+        text-transform: uppercase;
+        margin: 0;
+      }
+
+      .workspace-current-search {
+        @include kidsfont($size: #{($headerHeight - 2 * $topPadding) * 2 / 3}, $lineHeight: 1);
+        text-transform: capitalize;
+        margin: 0;
+      }
+
+      label {
+        @include bodyfont($size: 12px, $lineHeight: 1.4);
+      }
+    }
+
+    .people {
+      display: flex;
+      justify-content: flex-start;
+      align-items: stretch;
+      height: calc(100% - #{$headerHeight});
+      position: absolute;
+      padding: 0.5em;
+      box-sizing: border-box;
+      overflow-x: auto;
+      width: 100%;
+    }
   }
 }

@@ -20,6 +20,7 @@ module.exports = {
   },
   rules: {
     '@typescript-eslint/interface-name-prefix' : 'off',
+    '@typescript-eslint/camelcase' : 'off',
     'brace-style': ["error", "stroustrup"],
     'new-cap' : 'off',
     'no-console': 'off',

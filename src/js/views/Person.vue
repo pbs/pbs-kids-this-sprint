@@ -1,7 +1,10 @@
 <template>
   <section class="person">
-    <h2 class="person_name">{{person.name}}</h2>
-    <div class="stories-container">
+    <header class="person-header">
+      <h1 class="person-name">{{person.name}}</h1>
+      <em class="person-points" v-if="points">{{points}} {{points > 1 ? 'pts' : 'pt'}}</em>
+    </header>
+    <div class="stories">
       <Story :story="story" v-for='story in stories' :key='story.index' />
     </div>
   </section>
@@ -19,18 +22,20 @@ import Story from './Story.vue';
 
 export default class Person extends Vue {
   @Prop({ required: true }) readonly person!: Pivotal.Person;
+  @Prop({ required: true }) readonly label!: string;
   @Prop({ required: true }) readonly projectIds!: number[];
 
   private stories: Pivotal.Story[];
+  private points: number;
 
   constructor() {
     super();
     this.stories = [];
+    this.points = 0;
   }
 
   async mounted(): Promise<void> {
-    let label = 'sprint 133';
-    let query = `(label:"${label}"+OR+state:started,finished,delivered,rejected)`
+    let query = `(label:"${this.label}"+OR+state:started,finished,delivered,rejected)`
               + `+AND+(owner:"${this.person.initials}")`;
 
     for (let id of this.projectIds) {
@@ -39,6 +44,10 @@ export default class Person extends Vue {
       if (searchResults) {
         this.stories = this.stories.concat(searchResults.stories.stories);
       }
+    }
+
+    for (let story of this.stories) {
+      this.points += story.estimate || 0;
     }
   }
 }
