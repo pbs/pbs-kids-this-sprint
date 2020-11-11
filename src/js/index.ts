@@ -1,4 +1,5 @@
 import App from './views/App.vue';
+import MarkdownIt from 'markdown-it';
 import Pivotal from './utils/pivotal';
 import Vue, { CreateElement, VNode } from 'vue';
 
@@ -14,6 +15,9 @@ function onDomReady(): void {
 
   // Instantiate Pivotal global.
   Vue.prototype.$pivotal = new Pivotal(ENV.token, 'PBS_KIDS_THIS_SPRINT::');
+
+  // Instantiate MarkdownIt for markdown to html rendering.
+  Vue.prototype.$markdown = new MarkdownIt('default');
 
   // Start the Vue app.
   new Vue({

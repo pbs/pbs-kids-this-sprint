@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="24px" viewBox="0 0 16 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>point-2-fib </title>
+    <g id="point-2-fib-" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="point-2-fib">
+            <rect id="Rectangle" fill-opacity="0" fill="#4A4A4A" x="0" y="0" width="16" height="24" rx="2"/>
+            <g id="Group-11" transform="translate(4.000000, 13.000000)" fill="#749EBC">
+                <rect id="Rectangle" x="0" y="0" width="8" height="2"/>
+                <rect id="Rectangle" x="0" y="4" width="8" height="2"/>
+            </g>
+        </g>
+    </g>
+</svg>

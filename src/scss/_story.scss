@@ -6,80 +6,118 @@
   border-bottom: 1px solid #ddd;
   @include bodyfont($size: 1em, $lineHeight: 1.4);
 
-  .story-name {
-    $iconWidth: 16px;
-    $iconTypeHeight: 16px;
-    $iconPointsHeight: 24px;
-    $padding: 0.5em;
+  $iconWidth: 16px;
+  $iconTypeHeight: 16px;
+  $iconPointsHeight: 24px;
+  $iconUrlWidth: 14px;
+  $padding: 0.5em;
 
+  .story-header {
+    display: grid;
+    grid-template-columns: $iconWidth $iconWidth $iconUrlWidth auto;
+    grid-template-rows: $iconPointsHeight $iconWidth auto;
+    grid-template-areas:
+      "story-type   story-points story-url    story-name"
+      "story-status story-status story-status story-name"
+      ".            .            .            story-name";
+
+    grid-gap: $padding;
     padding: $padding;
-    padding-left: calc(#{3 * $padding} + #{2 * $iconWidth});
-    min-height: $iconPointsHeight;
-    margin: 0;
-    font-size: 1em;
-    font-weight: normal;
-    cursor: pointer;
 
-    &::before {
-      // Used to display story type
-      content: '';
-      position: absolute;
+    .story-name {
+      margin: 0;
+      font-size: 1em;
+      font-weight: normal;
+      cursor: pointer;
+      grid-area: story-name;
+      padding: 0 0 0 $padding;
+    }
+
+    .story-type {
       width: $iconWidth;
       height: $iconTypeHeight;
-      top: $padding;
-      left: $padding;
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
+      grid-area: story-type;
+
+      &.feature {
+        background-image: url('/images/icon-feature.png');
+      }
+
+      &.bug {
+        background-image: url('/images/icon-bug.png');
+      }
+
+      &.chore {
+        background-image: url('/images/icon-chore.png');
+      }
+
+      &.release {
+        background-image: url('/images/icon-release.png');
+      }
     }
 
-    &.feature::before {
-      background-image: url('/images/icon-feature.png');
-    }
-
-    &.bug::before {
-      background-image: url('/images/icon-bug.png');
-    }
-
-    &.chore::before {
-      background-image: url('/images/icon-chore.png');
-    }
-
-    &.release::before {
-      background-image: url('/images/icon-release.png');
-    }
-
-    &::after {
-      // Used to display point estimates
-      content: '';
-      position: absolute;
-      width: $iconWidth;
-      height: $iconPointsHeight;
-      top: calc(#{$padding} - #{$iconPointsHeight - $iconTypeHeight}/2);
-      left: calc(#{2 * $padding} + #{$iconWidth});
+    .story-points {
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
+      grid-area: story-points;
+
+      &.estimate-1 {
+        background-image: url('/images/point-1.svg');
+      }
+
+      &.estimate-2 {
+        background-image: url('/images/point-2.svg');
+      }
+
+      &.estimate-3 {
+        background-image: url('/images/point-3.svg');
+      }
     }
 
-    &.estimate-1::after {
-      background-image: url('/images/point-1.svg');
+    .story-status {
+      grid-area: story-status;
+      font-size: 0.7em;
+      background-color: $KidsBlue;
+      color: #ffffff;
+      text-align: center;
+      text-transform: capitalize;
+
+      &.planned {
+        background-color: $KidsBlue;
+      }
+
+      &.unstarted {
+        background-color: $KidsModalOverlay;
+      }
+
+      &.started {
+        background-color: $KidsGreenDeep;
+      }
+
+      &.delivered,
+      &.finished {
+        background-color: $parentsTextOrange;
+      }
+
+      &.rejected,
+      &.unscheduled {
+        background-color: $parentsTextMagenta;
+      }
     }
 
-    &.estimate-2::after {
-      background-image: url('/images/point-2.svg');
+    .story-url {
+      opacity: 0.5;
+      grid-area: story-url;
     }
-
-    &.estimate-3::after {
-      background-image: url('/images/point-3.svg');
-    }
-
   }
 
   .story-description {
     background: #d7e4f2;
     font-size: 0.8em;
-    padding: 1em;
+    padding: 2 * $padding;
     margin: 0;
     border-top: solid 1px #afbfd0;
   }

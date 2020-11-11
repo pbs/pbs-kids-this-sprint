@@ -7,8 +7,6 @@ body {
   background-color: #212121;
 
   #app {
-    // @include bodyfont($size: 12px, $lineHeight: 1.4);
-
     $headerHeight: 4em;
 
     .worspace-header {
@@ -20,23 +18,29 @@ body {
       padding: $topPadding 1.5em;
       display: flex;
       justify-content: space-between;
-      align-items: baseline;
+      align-items: flex-end;
       box-sizing: border-box;
 
       .workspace-name {
         @include kidsfont($size: #{$headerHeight - 2 * $topPadding}, $lineHeight: 1);
         text-transform: uppercase;
         margin: 0;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
       }
 
       .workspace-current-search {
         @include kidsfont($size: #{($headerHeight - 2 * $topPadding) * 2 / 3}, $lineHeight: 1);
         text-transform: capitalize;
-        margin: 0;
+        margin: 0 1em;
+        white-space: nowrap;
       }
 
       label {
         @include bodyfont($size: 12px, $lineHeight: 1.4);
+        display: flex;
+        flex-direction: column;
       }
     }
 

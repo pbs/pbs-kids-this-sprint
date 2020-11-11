@@ -11,8 +11,10 @@
   "private": true,
   "main": "src/js/index.ts",
   "dependencies": {
+    "@types/markdown-it": "^10.0.3",
     "dotenv": "^8.2.0",
     "json2csv": "^4.5.4",
+    "markdown-it": "^12.0.2",
     "node-json-xlsx": "^0.2.2",
     "superagent": "5.3.1",
     "vue": "2.6.11",
