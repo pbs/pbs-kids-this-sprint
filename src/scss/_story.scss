@@ -42,19 +42,19 @@
       grid-area: story-type;
 
       &.feature {
-        background-image: url('/images/icon-feature.png');
+        background-image: url('./images/icon-feature.png');
       }
 
       &.bug {
-        background-image: url('/images/icon-bug.png');
+        background-image: url('./images/icon-bug.png');
       }
 
       &.chore {
-        background-image: url('/images/icon-chore.png');
+        background-image: url('./images/icon-chore.png');
       }
 
       &.release {
-        background-image: url('/images/icon-release.png');
+        background-image: url('./images/icon-release.png');
       }
     }
 
@@ -65,15 +65,15 @@
       grid-area: story-points;
 
       &.estimate-1 {
-        background-image: url('/images/point-1.svg');
+        background-image: url('./images/point-1.svg');
       }
 
       &.estimate-2 {
-        background-image: url('/images/point-2.svg');
+        background-image: url('./images/point-2.svg');
       }
 
       &.estimate-3 {
-        background-image: url('/images/point-3.svg');
+        background-image: url('./images/point-3.svg');
       }
     }
 
@@ -110,6 +110,10 @@
 
     .story-url {
       opacity: 0.5;
+      background: url('./images/external-link.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
       grid-area: story-url;
     }
   }

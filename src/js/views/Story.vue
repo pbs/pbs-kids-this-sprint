@@ -2,7 +2,7 @@
   <article class="story">
     <header :class="'story-header ' + storyClasses">
       <h3 class="story-name" @click="toggleDescription">{{story.name}}</h3>
-      <a class="story-url" :href="story.url" target="_blank"><img src="/images/external-link.svg"></a>
+      <a class="story-url" :href="story.url" target="_blank"></a>
       <span :class="'story-status ' + story.current_state">{{story.current_state}}</span>
       <span :class="'story-type ' + story.story_type"></span>
       <span :class="'story-points estimate-' + this.story.estimate"></span>

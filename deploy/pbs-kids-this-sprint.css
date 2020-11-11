@@ -2,43 +2,43 @@
   font-family: "Colfax-Regular-Italic";
   font-style: normal;
   font-weight: normal;
-  src: url("/fonts/ColfaxWebRegularItalic.eot?#iefix") format("embedded-opentype"), url("/fonts/ColfaxWebRegularItalic.woff") format("woff"), url("/fonts/ColfaxWebRegularItalic.ttf") format("truetype"), url("/fonts/ColfaxWebRegularItalic.svg#Colfax-Regular-Italic") format("svg"); }
+  src: url("./fonts/ColfaxWebRegularItalic.eot?#iefix") format("embedded-opentype"), url("./fonts/ColfaxWebRegularItalic.woff") format("woff"), url("./fonts/ColfaxWebRegularItalic.ttf") format("truetype"), url("./fonts/ColfaxWebRegularItalic.svg#Colfax-Regular-Italic") format("svg"); }
 
 @font-face {
   font-family: "Colfax-Medium";
   font-style: normal;
   font-weight: normal;
-  src: url("/fonts/ColfaxWebMedium.eot?#iefix") format("embedded-opentype"), url("/fonts/ColfaxWebMedium.woff") format("woff"), url("/fonts/ColfaxWebMedium.ttf") format("truetype"), url("/fonts/ColfaxWebMedium.svg#Colfax-Medium") format("svg"); }
+  src: url("./fonts/ColfaxWebMedium.eot?#iefix") format("embedded-opentype"), url("./fonts/ColfaxWebMedium.woff") format("woff"), url("./fonts/ColfaxWebMedium.ttf") format("truetype"), url("./fonts/ColfaxWebMedium.svg#Colfax-Medium") format("svg"); }
 
 @font-face {
   font-family: "Colfax-Medium-Italic";
   font-style: normal;
   font-weight: normal;
-  src: url("/fonts/ColfaxWebMediumItalic.eot?#iefix") format("embedded-opentype"), url("/fonts/ColfaxWebMediumItalic.woff") format("woff"), url("/fonts/ColfaxWebMediumItalic.ttf") format("truetype"), url("/fonts/ColfaxWebMediumItalic.svg#Colfax-Medium-Italic") format("svg"); }
+  src: url("./fonts/ColfaxWebMediumItalic.eot?#iefix") format("embedded-opentype"), url("./fonts/ColfaxWebMediumItalic.woff") format("woff"), url("./fonts/ColfaxWebMediumItalic.ttf") format("truetype"), url("./fonts/ColfaxWebMediumItalic.svg#Colfax-Medium-Italic") format("svg"); }
 
 @font-face {
   font-family: "Colfax-Bold";
   font-style: normal;
   font-weight: normal;
-  src: url("/fonts/ColfaxWebBold.eot?#iefix") format("embedded-opentype"), url("/fonts/ColfaxWebBold.woff") format("woff"), url("/fonts/ColfaxWebBold.ttf") format("truetype"), url("/fonts/ColfaxWebBold.svg#Colfax-Bold") format("svg"); }
+  src: url("./fonts/ColfaxWebBold.eot?#iefix") format("embedded-opentype"), url("./fonts/ColfaxWebBold.woff") format("woff"), url("./fonts/ColfaxWebBold.ttf") format("truetype"), url("./fonts/ColfaxWebBold.svg#Colfax-Bold") format("svg"); }
 
 @font-face {
   font-family: "Colfax-Bold-Italic";
   font-style: normal;
   font-weight: normal;
-  src: url("/fonts/ColfaxWebBoldItalic.eot?#iefix") format("embedded-opentype"), url("/fonts/ColfaxWebBoldItalic.woff") format("woff"), url("/fonts/ColfaxWebBoldItalic.ttf") format("truetype"), url("/fonts/ColfaxWebBoldItalic.svg#Colfax-Bold-Italic") format("svg"); }
+  src: url("./fonts/ColfaxWebBoldItalic.eot?#iefix") format("embedded-opentype"), url("./fonts/ColfaxWebBoldItalic.woff") format("woff"), url("./fonts/ColfaxWebBoldItalic.ttf") format("truetype"), url("./fonts/ColfaxWebBoldItalic.svg#Colfax-Bold-Italic") format("svg"); }
 
 @font-face {
   font-family: "PBS_KIDS_Headline";
   font-style: normal;
   font-weight: normal;
-  src: url("/fonts/pbskidsheadline-regular-webfont.eot?#iefix") format("embedded-opentype"), url("/fonts/pbskidsheadline-regular-webfont.woff") format("woff"), url("/fonts/pbskidsheadline-regular-webfont.ttf") format("truetype"), url("/fonts/pbskidsheadline-regular-webfont.svg#PBS_KIDS_Headline") format("svg"); }
+  src: url("./fonts/pbskidsheadline-regular-webfont.eot?#iefix") format("embedded-opentype"), url("./fonts/pbskidsheadline-regular-webfont.woff") format("woff"), url("./fonts/pbskidsheadline-regular-webfont.ttf") format("truetype"), url("./fonts/pbskidsheadline-regular-webfont.svg#PBS_KIDS_Headline") format("svg"); }
 
 @font-face {
   font-family: "PBS_KIDS_Headline_Bold";
   font-style: normal;
   font-weight: normal;
-  src: url("/fonts/pbskidsheadline-bold-webfont.eot?#iefix") format("embedded-opentype"), url("/fonts/pbskidsheadline-bold-webfont.woff") format("woff"), url("/fonts/pbskidsheadline-bold-webfont.ttf") format("truetype"), url("/fonts/pbskidsheadline-bold-webfont.svg#PBS_KIDS_Headline_Bold") format("svg"); }
+  src: url("./fonts/pbskidsheadline-bold-webfont.eot?#iefix") format("embedded-opentype"), url("./fonts/pbskidsheadline-bold-webfont.woff") format("woff"), url("./fonts/pbskidsheadline-bold-webfont.ttf") format("truetype"), url("./fonts/pbskidsheadline-bold-webfont.svg#PBS_KIDS_Headline_Bold") format("svg"); }
 
 h1 {
   margin-bottom: 0px;
@@ -48,43 +48,43 @@ h1 {
   font-family: "Colfax-Regular-Italic";
   font-style: normal;
   font-weight: normal;
-  src: url("/fonts/ColfaxWebRegularItalic.eot?#iefix") format("embedded-opentype"), url("/fonts/ColfaxWebRegularItalic.woff") format("woff"), url("/fonts/ColfaxWebRegularItalic.ttf") format("truetype"), url("/fonts/ColfaxWebRegularItalic.svg#Colfax-Regular-Italic") format("svg"); }
+  src: url("./fonts/ColfaxWebRegularItalic.eot?#iefix") format("embedded-opentype"), url("./fonts/ColfaxWebRegularItalic.woff") format("woff"), url("./fonts/ColfaxWebRegularItalic.ttf") format("truetype"), url("./fonts/ColfaxWebRegularItalic.svg#Colfax-Regular-Italic") format("svg"); }
 
 @font-face {
   font-family: "Colfax-Medium";
   font-style: normal;
   font-weight: normal;
-  src: url("/fonts/ColfaxWebMedium.eot?#iefix") format("embedded-opentype"), url("/fonts/ColfaxWebMedium.woff") format("woff"), url("/fonts/ColfaxWebMedium.ttf") format("truetype"), url("/fonts/ColfaxWebMedium.svg#Colfax-Medium") format("svg"); }
+  src: url("./fonts/ColfaxWebMedium.eot?#iefix") format("embedded-opentype"), url("./fonts/ColfaxWebMedium.woff") format("woff"), url("./fonts/ColfaxWebMedium.ttf") format("truetype"), url("./fonts/ColfaxWebMedium.svg#Colfax-Medium") format("svg"); }
 
 @font-face {
   font-family: "Colfax-Medium-Italic";
   font-style: normal;
   font-weight: normal;
-  src: url("/fonts/ColfaxWebMediumItalic.eot?#iefix") format("embedded-opentype"), url("/fonts/ColfaxWebMediumItalic.woff") format("woff"), url("/fonts/ColfaxWebMediumItalic.ttf") format("truetype"), url("/fonts/ColfaxWebMediumItalic.svg#Colfax-Medium-Italic") format("svg"); }
+  src: url("./fonts/ColfaxWebMediumItalic.eot?#iefix") format("embedded-opentype"), url("./fonts/ColfaxWebMediumItalic.woff") format("woff"), url("./fonts/ColfaxWebMediumItalic.ttf") format("truetype"), url("./fonts/ColfaxWebMediumItalic.svg#Colfax-Medium-Italic") format("svg"); }
 
 @font-face {
   font-family: "Colfax-Bold";
   font-style: normal;
   font-weight: normal;
-  src: url("/fonts/ColfaxWebBold.eot?#iefix") format("embedded-opentype"), url("/fonts/ColfaxWebBold.woff") format("woff"), url("/fonts/ColfaxWebBold.ttf") format("truetype"), url("/fonts/ColfaxWebBold.svg#Colfax-Bold") format("svg"); }
+  src: url("./fonts/ColfaxWebBold.eot?#iefix") format("embedded-opentype"), url("./fonts/ColfaxWebBold.woff") format("woff"), url("./fonts/ColfaxWebBold.ttf") format("truetype"), url("./fonts/ColfaxWebBold.svg#Colfax-Bold") format("svg"); }
 
 @font-face {
   font-family: "Colfax-Bold-Italic";
   font-style: normal;
   font-weight: normal;
-  src: url("/fonts/ColfaxWebBoldItalic.eot?#iefix") format("embedded-opentype"), url("/fonts/ColfaxWebBoldItalic.woff") format("woff"), url("/fonts/ColfaxWebBoldItalic.ttf") format("truetype"), url("/fonts/ColfaxWebBoldItalic.svg#Colfax-Bold-Italic") format("svg"); }
+  src: url("./fonts/ColfaxWebBoldItalic.eot?#iefix") format("embedded-opentype"), url("./fonts/ColfaxWebBoldItalic.woff") format("woff"), url("./fonts/ColfaxWebBoldItalic.ttf") format("truetype"), url("./fonts/ColfaxWebBoldItalic.svg#Colfax-Bold-Italic") format("svg"); }
 
 @font-face {
   font-family: "PBS_KIDS_Headline";
   font-style: normal;
   font-weight: normal;
-  src: url("/fonts/pbskidsheadline-regular-webfont.eot?#iefix") format("embedded-opentype"), url("/fonts/pbskidsheadline-regular-webfont.woff") format("woff"), url("/fonts/pbskidsheadline-regular-webfont.ttf") format("truetype"), url("/fonts/pbskidsheadline-regular-webfont.svg#PBS_KIDS_Headline") format("svg"); }
+  src: url("./fonts/pbskidsheadline-regular-webfont.eot?#iefix") format("embedded-opentype"), url("./fonts/pbskidsheadline-regular-webfont.woff") format("woff"), url("./fonts/pbskidsheadline-regular-webfont.ttf") format("truetype"), url("./fonts/pbskidsheadline-regular-webfont.svg#PBS_KIDS_Headline") format("svg"); }
 
 @font-face {
   font-family: "PBS_KIDS_Headline_Bold";
   font-style: normal;
   font-weight: normal;
-  src: url("/fonts/pbskidsheadline-bold-webfont.eot?#iefix") format("embedded-opentype"), url("/fonts/pbskidsheadline-bold-webfont.woff") format("woff"), url("/fonts/pbskidsheadline-bold-webfont.ttf") format("truetype"), url("/fonts/pbskidsheadline-bold-webfont.svg#PBS_KIDS_Headline_Bold") format("svg"); }
+  src: url("./fonts/pbskidsheadline-bold-webfont.eot?#iefix") format("embedded-opentype"), url("./fonts/pbskidsheadline-bold-webfont.woff") format("woff"), url("./fonts/pbskidsheadline-bold-webfont.ttf") format("truetype"), url("./fonts/pbskidsheadline-bold-webfont.svg#PBS_KIDS_Headline_Bold") format("svg"); }
 
 h1 {
   margin-bottom: 0px;
@@ -137,43 +137,43 @@ h1 {
   font-family: "Colfax-Regular-Italic";
   font-style: normal;
   font-weight: normal;
-  src: url("/fonts/ColfaxWebRegularItalic.eot?#iefix") format("embedded-opentype"), url("/fonts/ColfaxWebRegularItalic.woff") format("woff"), url("/fonts/ColfaxWebRegularItalic.ttf") format("truetype"), url("/fonts/ColfaxWebRegularItalic.svg#Colfax-Regular-Italic") format("svg"); }
+  src: url("./fonts/ColfaxWebRegularItalic.eot?#iefix") format("embedded-opentype"), url("./fonts/ColfaxWebRegularItalic.woff") format("woff"), url("./fonts/ColfaxWebRegularItalic.ttf") format("truetype"), url("./fonts/ColfaxWebRegularItalic.svg#Colfax-Regular-Italic") format("svg"); }
 
 @font-face {
   font-family: "Colfax-Medium";
   font-style: normal;
   font-weight: normal;
-  src: url("/fonts/ColfaxWebMedium.eot?#iefix") format("embedded-opentype"), url("/fonts/ColfaxWebMedium.woff") format("woff"), url("/fonts/ColfaxWebMedium.ttf") format("truetype"), url("/fonts/ColfaxWebMedium.svg#Colfax-Medium") format("svg"); }
+  src: url("./fonts/ColfaxWebMedium.eot?#iefix") format("embedded-opentype"), url("./fonts/ColfaxWebMedium.woff") format("woff"), url("./fonts/ColfaxWebMedium.ttf") format("truetype"), url("./fonts/ColfaxWebMedium.svg#Colfax-Medium") format("svg"); }
 
 @font-face {
   font-family: "Colfax-Medium-Italic";
   font-style: normal;
   font-weight: normal;
-  src: url("/fonts/ColfaxWebMediumItalic.eot?#iefix") format("embedded-opentype"), url("/fonts/ColfaxWebMediumItalic.woff") format("woff"), url("/fonts/ColfaxWebMediumItalic.ttf") format("truetype"), url("/fonts/ColfaxWebMediumItalic.svg#Colfax-Medium-Italic") format("svg"); }
+  src: url("./fonts/ColfaxWebMediumItalic.eot?#iefix") format("embedded-opentype"), url("./fonts/ColfaxWebMediumItalic.woff") format("woff"), url("./fonts/ColfaxWebMediumItalic.ttf") format("truetype"), url("./fonts/ColfaxWebMediumItalic.svg#Colfax-Medium-Italic") format("svg"); }
 
 @font-face {
   font-family: "Colfax-Bold";
   font-style: normal;
   font-weight: normal;
-  src: url("/fonts/ColfaxWebBold.eot?#iefix") format("embedded-opentype"), url("/fonts/ColfaxWebBold.woff") format("woff"), url("/fonts/ColfaxWebBold.ttf") format("truetype"), url("/fonts/ColfaxWebBold.svg#Colfax-Bold") format("svg"); }
+  src: url("./fonts/ColfaxWebBold.eot?#iefix") format("embedded-opentype"), url("./fonts/ColfaxWebBold.woff") format("woff"), url("./fonts/ColfaxWebBold.ttf") format("truetype"), url("./fonts/ColfaxWebBold.svg#Colfax-Bold") format("svg"); }
 
 @font-face {
   font-family: "Colfax-Bold-Italic";
   font-style: normal;
   font-weight: normal;
-  src: url("/fonts/ColfaxWebBoldItalic.eot?#iefix") format("embedded-opentype"), url("/fonts/ColfaxWebBoldItalic.woff") format("woff"), url("/fonts/ColfaxWebBoldItalic.ttf") format("truetype"), url("/fonts/ColfaxWebBoldItalic.svg#Colfax-Bold-Italic") format("svg"); }
+  src: url("./fonts/ColfaxWebBoldItalic.eot?#iefix") format("embedded-opentype"), url("./fonts/ColfaxWebBoldItalic.woff") format("woff"), url("./fonts/ColfaxWebBoldItalic.ttf") format("truetype"), url("./fonts/ColfaxWebBoldItalic.svg#Colfax-Bold-Italic") format("svg"); }
 
 @font-face {
   font-family: "PBS_KIDS_Headline";
   font-style: normal;
   font-weight: normal;
-  src: url("/fonts/pbskidsheadline-regular-webfont.eot?#iefix") format("embedded-opentype"), url("/fonts/pbskidsheadline-regular-webfont.woff") format("woff"), url("/fonts/pbskidsheadline-regular-webfont.ttf") format("truetype"), url("/fonts/pbskidsheadline-regular-webfont.svg#PBS_KIDS_Headline") format("svg"); }
+  src: url("./fonts/pbskidsheadline-regular-webfont.eot?#iefix") format("embedded-opentype"), url("./fonts/pbskidsheadline-regular-webfont.woff") format("woff"), url("./fonts/pbskidsheadline-regular-webfont.ttf") format("truetype"), url("./fonts/pbskidsheadline-regular-webfont.svg#PBS_KIDS_Headline") format("svg"); }
 
 @font-face {
   font-family: "PBS_KIDS_Headline_Bold";
   font-style: normal;
   font-weight: normal;
-  src: url("/fonts/pbskidsheadline-bold-webfont.eot?#iefix") format("embedded-opentype"), url("/fonts/pbskidsheadline-bold-webfont.woff") format("woff"), url("/fonts/pbskidsheadline-bold-webfont.ttf") format("truetype"), url("/fonts/pbskidsheadline-bold-webfont.svg#PBS_KIDS_Headline_Bold") format("svg"); }
+  src: url("./fonts/pbskidsheadline-bold-webfont.eot?#iefix") format("embedded-opentype"), url("./fonts/pbskidsheadline-bold-webfont.woff") format("woff"), url("./fonts/pbskidsheadline-bold-webfont.ttf") format("truetype"), url("./fonts/pbskidsheadline-bold-webfont.svg#PBS_KIDS_Headline_Bold") format("svg"); }
 
 h1 {
   margin-bottom: 0px;
@@ -210,24 +210,24 @@ h1 {
       background-position: center;
       grid-area: story-type; }
       .story .story-header .story-type.feature {
-        background-image: url("/images/icon-feature.png"); }
+        background-image: url("./images/icon-feature.png"); }
       .story .story-header .story-type.bug {
-        background-image: url("/images/icon-bug.png"); }
+        background-image: url("./images/icon-bug.png"); }
       .story .story-header .story-type.chore {
-        background-image: url("/images/icon-chore.png"); }
+        background-image: url("./images/icon-chore.png"); }
       .story .story-header .story-type.release {
-        background-image: url("/images/icon-release.png"); }
+        background-image: url("./images/icon-release.png"); }
     .story .story-header .story-points {
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
       grid-area: story-points; }
       .story .story-header .story-points.estimate-1 {
-        background-image: url("/images/point-1.svg"); }
+        background-image: url("./images/point-1.svg"); }
       .story .story-header .story-points.estimate-2 {
-        background-image: url("/images/point-2.svg"); }
+        background-image: url("./images/point-2.svg"); }
       .story .story-header .story-points.estimate-3 {
-        background-image: url("/images/point-3.svg"); }
+        background-image: url("./images/point-3.svg"); }
     .story .story-header .story-status {
       grid-area: story-status;
       font-size: 0.7em;
@@ -247,6 +247,10 @@ h1 {
         background-color: #b20654; }
     .story .story-header .story-url {
       opacity: 0.5;
+      background: url("./images/external-link.svg");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
       grid-area: story-url; }
   .story .story-description {
     background: #d7e4f2;

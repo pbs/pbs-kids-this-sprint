@@ -45,17 +45,17 @@
   }
 }
 
-@include font-face("Colfax-Regular-Italic", "/fonts/ColfaxWebRegularItalic", $file-formats: eot woff);
+@include font-face("Colfax-Regular-Italic", "./fonts/ColfaxWebRegularItalic", $file-formats: eot woff);
 
-@include font-face("Colfax-Medium", "/fonts/ColfaxWebMedium", $file-formats: eot woff);
-@include font-face("Colfax-Medium-Italic", "/fonts/ColfaxWebMediumItalic", $file-formats: eot woff);
+@include font-face("Colfax-Medium", "./fonts/ColfaxWebMedium", $file-formats: eot woff);
+@include font-face("Colfax-Medium-Italic", "./fonts/ColfaxWebMediumItalic", $file-formats: eot woff);
 
-@include font-face("Colfax-Bold", "/fonts/ColfaxWebBold", $file-formats: eot woff);
-@include font-face("Colfax-Bold-Italic", "/fonts/ColfaxWebBoldItalic", $file-formats: eot woff);
+@include font-face("Colfax-Bold", "./fonts/ColfaxWebBold", $file-formats: eot woff);
+@include font-face("Colfax-Bold-Italic", "./fonts/ColfaxWebBoldItalic", $file-formats: eot woff);
 
 
-@include font-face("PBS_KIDS_Headline", "/fonts/pbskidsheadline-regular-webfont", $file-formats: eot svg woff ttf);
-@include font-face("PBS_KIDS_Headline_Bold", "/fonts/pbskidsheadline-bold-webfont", $file-formats: eot svg woff ttf);
+@include font-face("PBS_KIDS_Headline", "./fonts/pbskidsheadline-regular-webfont", $file-formats: eot svg woff ttf);
+@include font-face("PBS_KIDS_Headline_Bold", "./fonts/pbskidsheadline-bold-webfont", $file-formats: eot svg woff ttf);
 
 h1{
 	margin-bottom: 0px;
