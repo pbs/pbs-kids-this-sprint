@@ -262,7 +262,7 @@ h1 {
 body {
   margin: 0;
   background-color: #212121; }
-  body #app .worspace-header {
+  body #app .workspace-header {
     color: #ffffff;
     background-color: #CE1569;
     height: 4em;
@@ -271,7 +271,7 @@ body {
     justify-content: space-between;
     align-items: flex-end;
     box-sizing: border-box; }
-    body #app .worspace-header .workspace-name {
+    body #app .workspace-header .workspace-name {
       font-family: PBS_KIDS_Headline, Arial, Helvetica, sans-serif;
       font-size: 2.5em;
       font-weight: normal;
@@ -283,7 +283,7 @@ body {
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis; }
-    body #app .worspace-header .workspace-current-search {
+    body #app .workspace-header .workspace-current-search {
       font-family: PBS_KIDS_Headline, Arial, Helvetica, sans-serif;
       font-size: 1.66667em;
       font-weight: normal;
@@ -293,7 +293,7 @@ body {
       text-transform: capitalize;
       margin: 0 1em;
       white-space: nowrap; }
-    body #app .worspace-header label {
+    body #app .workspace-header label {
       font-family: Colfax-Regular, Arial, Helvetica, sans-serif;
       font-size: 12px;
       font-weight: normal;

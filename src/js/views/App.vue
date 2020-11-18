@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <header class="worspace-header">
+    <header class="workspace-header">
       <h1 class="workspace-name">{{workspace.name || 'Loading...'}}</h1>
 
       <h2 class="workspace-current-search">{{searchLabel}}</h2>
