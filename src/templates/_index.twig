@@ -6,16 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
-    <meta name="description" content="<%= htmlWebpackPlugin.options.description %>">
+    <meta name="description" content="">
 
-    <title><%= htmlWebpackPlugin.options.title %></title>
+    <title>PBS KIDS This Sprint</title>
 
-    <link rel="stylesheet" href="<%= htmlWebpackPlugin.options.name %>.css"/>
+    <link rel="stylesheet" href="{{resourcePath}}/pbs-kids-this-sprint.css"/>
   </head>
 
   <body>
     <div id="app"></div>
   </body>
 
-  <script type="text/javascript" src="<%= htmlWebpackPlugin.options.name %>.js"></script>
+  <script>
+    window.PIVOTAL_CONFIG = {
+      account: {{account}},
+      usernames: '{{usernames}}'.split(','),
+      workspaceId: {{workspaceId}}
+    }
+  </script>
+
+  <script type="text/javascript" src="{{resourcePath}}/pbs-kids-this-sprint.js"></script>
 </html>

@@ -1,27 +1,16 @@
-const CopyPlugin = require('copy-webpack-plugin');
 const path = require('path');
 const pkg = require('./package.json');
-const dotenv = require('dotenv');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const webpack = require('webpack');
 
 module.exports = (env, { watch }) => {
-  dotenv.config();
-
   console.log({ env, watch });
 
   return {
     entry: `./src/js/index.ts`,
     stats: 'errors-only',
     mode: env.dev ? 'development' : 'production',
-
-    devServer: {
-      contentBase: path.join(__dirname, '/deploy'),
-      host: 'localhost',
-      port: 1123
-    },
 
     optimization: {
       minimize: !env.dev,
@@ -42,7 +31,7 @@ module.exports = (env, { watch }) => {
 
     output: {
       filename: `${process.env.npm_package_name}.js`,
-      path: path.join(__dirname, 'deploy')
+      path: path.join(__dirname, 'src/resources')
     },
 
     resolve: {
@@ -50,31 +39,16 @@ module.exports = (env, { watch }) => {
     },
 
     plugins: [
-      new CopyPlugin({
-        patterns: [
-          { from: 'static' }
-        ],
-      }),
       new VueLoaderPlugin(),
       new webpack.DefinePlugin({
         ENV: JSON.stringify({
           debugMode: !!env.dev,
           version: pkg.version,
-          token: process.env.PIVOTAL_TOKEN,
-          account: process.env.PIVOTAL_ACCOUNT,
-          usernames: process.env.USERNAMES,
-          workspaceId: process.env.WORKSPACE_ID,
         }),
         SECONDS: 1000,
         MINUTES: 60000,
         HOURS: 360000,
         DAYS: 8640000,
-      }),
-      new HtmlWebpackPlugin({
-        title: pkg.title,
-        name: pkg.name,
-        description: pkg.description,
-        template: 'src/templates/index.html'
       })
     ],
 

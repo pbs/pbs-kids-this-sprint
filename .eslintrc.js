@@ -9,6 +9,7 @@ module.exports = {
     '@vue/typescript/recommended'
   ],
   globals: {
+    PIVOTAL_CONFIG: 'readonly',
     ENV: 'readonly',
     SECONDS: 'readonly',
     MINUTES: 'readonly',

@@ -27,10 +27,8 @@
     "@typescript-eslint/eslint-plugin": "^2.33.0",
     "@typescript-eslint/parser": "^2.33.0",
     "@vue/eslint-config-typescript": "^5.0.2",
-    "copy-webpack-plugin": "6.0.3",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^6.2.2",
-    "html-webpack-plugin": "^4.5.0",
     "node-sass": "4.11.0",
     "nodemon": "2.0.4",
     "ts-loader": "^8.0.3",
@@ -38,22 +36,21 @@
     "vue-loader": "15.9.3",
     "vue-template-compiler": "2.6.11",
     "webpack": "4.44.1",
-    "webpack-cli": "3.3.12",
-    "webpack-dev-server": "^3.3.1"
+    "webpack-cli": "3.3.12"
   },
   "scripts": {
     "== BUILD SCRIPTS ===================================================": "",
     "lint": "eslint ./src/js --ext .js,.ts,.vue",
     "lint:fix": "eslint ./src/js --ext .js,.ts,.vue --fix",
-    "build": "rm -rf deploy/* && webpack --env.prod && npm run build:css",
-    "build:css": "node-sass src/scss/index.scss deploy/$npm_package_name.css",
+    "build": "webpack --env.prod && npm run build:css",
+    "build:css": "node-sass src/scss/index.scss src/resources/$npm_package_name.css",
     "build:csv": "node -r dotenv/config src/js/cv/buildCsv.js",
     "build:csv:releases": "node -r dotenv/config src/js/cv/buildReleasesCsv.js",
     "== LOCAL TESTING ===================================================": "",
     "start": "npm test",
-    "test": "rm -rf deploy/* && npm run watch:js & npm run watch:css",
+    "test": "npm run watch:js & npm run watch:css",
     "watch:css": "nodemon -e scss -x \"npm run build:css\"",
-    "watch:js": "webpack-dev-server --env.dev --watch",
+    "watch:js": "webpack --env.dev --watch",
     "== INSTALL =========================================================": "",
     "postinstall": "ln -sf ../../scripts/pre-commit.sh .git/hooks/pre-commit"
   }

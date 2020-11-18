@@ -1,0 +1,28 @@
+{
+    "name": "pbskids/thissprint",
+    "description": "A utility plugin for visualizing all stories within a Pivotal workspace for a select list of engineers.",
+    "type": "craft-plugin",
+    "version": "1.0.0",
+    "license": "UNLICENSED",
+    "authors": [
+        {
+            "name": "Renzo Olguin",
+            "email": "rmolguin@pbs.org"
+        }
+    ],
+    "require": {
+        "craftcms/cms": "^3.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+          "pbskids\\thissprint\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "This Sprint",
+        "handle": "thissprint",
+        "developer": "Renzo Olguin",
+        "developerUrl": "rmolguin@pbs.org",
+        "class": "pbskids\\thissprint\\ThisSprint"
+    }
+}

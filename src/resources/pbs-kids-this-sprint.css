@@ -261,7 +261,7 @@ h1 {
 
 body {
   margin: 0;
-  background-color: #212121; }
+  background-color: #212121 !important; }
   body #app .workspace-header {
     color: #ffffff;
     background-color: #CE1569;

@@ -1,0 +1,41 @@
+{% import "_includes/forms" as forms %}
+
+{{ forms.textField({
+    label: 'Workspace ID',
+    instructions: 'ID for the workspace from which to retrieve stories.',
+    id: 'workspaceId',
+    name: 'workspaceId',
+    value: settings['workspaceId']
+}) }}
+
+{{ forms.textField({
+    label: 'Pivotal Account',
+    instructions: 'Account ID for a Pivotal user with access to the workspace.',
+    id: 'pivotalAccount',
+    name: 'pivotalAccount',
+    value: settings['pivotalAccount']
+}) }}
+
+{{ forms.passwordField({
+    label: 'Pivotal Token',
+    instructions: 'Token for a Pivotal user with access to the workspace.',
+    id: 'pivotalToken',
+    name: 'pivotalToken',
+    value: settings['pivotalToken']
+}) }}
+
+{{ forms.editableTableField({
+    label: 'Users',
+    instructions: 'List of usernames',
+    id: 'usernames',
+    name: 'usernames',
+    cols: [
+      {
+        heading: 'User Name',
+        type: 'singleline',
+        info: 'If a user is mentioned with `@someName2` then their username is `someName2`.'
+      }
+    ],
+    rows: settings['usernames'],
+    addRowLabel: 'Add a user',
+}) }}

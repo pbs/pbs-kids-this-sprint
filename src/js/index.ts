@@ -9,12 +9,8 @@ function onDomReady(): void {
   // Don't need production tip on Release builds.
   Vue.config.productionTip = ENV.debugMode;
 
-  if (!ENV.token) {
-    throw Error('No token found in ".env"');
-  }
-
   // Instantiate Pivotal global.
-  Vue.prototype.$pivotal = new Pivotal(ENV.token, 'PBS_KIDS_THIS_SPRINT::');
+  Vue.prototype.$pivotal = new Pivotal('PBS_KIDS_THIS_SPRINT::');
 
   // Instantiate MarkdownIt for markdown to html rendering.
   Vue.prototype.$markdown = new MarkdownIt('default');

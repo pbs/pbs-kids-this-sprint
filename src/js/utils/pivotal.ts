@@ -4,12 +4,9 @@ import LocalStorage from './localstorage';
 const SECONDS = 1000;
 
 export default class Pivotal {
-  public static BASE_URL: Readonly<string> = 'https://www.pivotaltracker.com/services/v5/';
-  private token: string;
   private cache: LocalStorage;
 
-  constructor(token: string, localStorageKeyPrefix: string) {
-    this.token = token;
+  constructor(localStorageKeyPrefix: string) {
     this.cache = new LocalStorage(localStorageKeyPrefix);
   }
 
@@ -17,7 +14,7 @@ export default class Pivotal {
     let memberships = await this.request(`accounts/${accountId}/memberships`, cacheTimeMS, delayMS);
 
     if (!memberships) {
-      throw Error(`No Members Found In Account ${ENV.account}`);
+      throw Error('No members found in account defined in /admin/settings/plugins/thissprint');
     }
 
     return memberships as Pivotal.AccountMembership[];
@@ -27,7 +24,7 @@ export default class Pivotal {
     let me: Pivotal.Me | undefined = await this.request(`me`, cacheTimeMS, delayMS);
 
     if (!me) {
-      throw Error(`Current Owner Of Account "${ENV.account}" Not Found`);
+      throw Error('Current owner not found for account defined in /admin/settings/plugins/thissprint');
     }
 
     return me;
@@ -73,7 +70,7 @@ export default class Pivotal {
     let workspace = await this.request(`my/workspaces/${workspaceId}`, cacheTimeMS, delayMS);
 
     if (!workspace) {
-      throw Error(`Workspace "${ENV.workspaceId}" Not Found`);
+      throw Error(`Workspace "${window.PIVOTAL_CONFIG.workspaceId}" not found`);
     }
 
     return workspace as Pivotal.Workspace;
@@ -93,8 +90,7 @@ export default class Pivotal {
     }
 
     try {
-      let headers = { 'X-TrackerToken': this.token };
-      let response = await superagent.get(Pivotal.BASE_URL + path).set(headers);
+      let response = await superagent.get('/admin/thissprint/get').query({ endpoint: path });
       this.cache.set(path, response.body, cacheTimeMS);
 
       return response.body;

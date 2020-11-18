@@ -5,12 +5,6 @@ declare global {
     // Build properties
     debugMode: boolean;
     version: string;
-
-    // Pivotal properties
-    account: number;
-    token: string;
-    workspaceId: number;
-    usernames: string[];
   };
 
   // Defining here to be available for Typescript,
@@ -20,4 +14,11 @@ declare global {
   const MINUTES = 60000;
   const HOURS = 360000;
   const DAYS = 8640000;
+  interface Window {
+    PIVOTAL_CONFIG: {
+      account: number;
+      usernames: string[];
+      workspaceId: number;
+    };
+  }
 }
