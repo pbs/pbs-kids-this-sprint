@@ -242,7 +242,7 @@ declare namespace Pivotal {
     requested_by_id: number;
     owned_by_id: number;
     owner_ids: number[];
-    label_ids: number[];
+    labels: number[];
     task_ids: number[];
     pull_request_ids: number[];
     cicd_event_ids: number[];

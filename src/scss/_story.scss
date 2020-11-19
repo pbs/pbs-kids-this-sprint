@@ -125,4 +125,29 @@
     margin: 0;
     border-top: solid 1px #afbfd0;
   }
+
+  .story-labels {
+    display: flex;
+    font-size: 0.8em;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 0.5em;
+
+    li {
+      margin: 0.25em;
+      border-radius: 0.2em;
+      padding: 0.25em 0.5em;
+
+      &.label {
+        background: $parentsNavPink;
+        color: $parentsTextPink;
+      }
+
+      &.epic {
+        background: $parentsNavBlue;
+        color: $parentsTextBlue;
+      }
+    }
+  }
 }

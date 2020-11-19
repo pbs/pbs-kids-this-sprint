@@ -21,6 +21,8 @@ import Vue from 'vue';
 import Component from 'vue-class-component';
 import Person from './Person.vue';
 
+const SEARCH_DELAY = 0.5 * SECONDS;
+
 @Component({
   components: {
     Person,
@@ -32,6 +34,7 @@ export default class App extends Vue {
   private projectIds?: number[];
   private workspace: Pivotal.Workspace;
   private searchLabel = 'sprint 133';
+  private searchTimeout?: number;
 
   constructor() {
     super();
@@ -67,9 +70,28 @@ export default class App extends Vue {
     }
   }
 
+  private updateSearch(searchTerm: string): void {
+    console.log(`updateSearch('${searchTerm}')`);
+    this.searchLabel = searchTerm;
+    console.log(`this.searchLabel = ${this.searchLabel}`);
+  }
+
   private onKeyUp(e: KeyboardEvent): void {
     if (e.code !== 'Enter' || !e.target) return;
-    this.searchLabel = (e.target as HTMLInputElement).value;
+
+    let newSearchValue = (e.target as HTMLInputElement).value;
+    this.searchLabel = '';
+
+    for (let child of this.$children) {
+      let person = (child as Person);
+      person.abortCurrentSearch = true;
+    }
+
+    this.$pivotal.abortAllRequests();
+
+    // Start new search after a short delay.
+    if (this.searchTimeout) clearTimeout(this.searchTimeout);
+    this.searchTimeout = setTimeout(this.updateSearch, SEARCH_DELAY, newSearchValue);
   }
 }
 </script>

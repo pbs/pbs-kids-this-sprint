@@ -258,6 +258,23 @@ h1 {
     padding: 1em;
     margin: 0;
     border-top: solid 1px #afbfd0; }
+  .story .story-labels {
+    display: flex;
+    font-size: 0.8em;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 0.5em; }
+    .story .story-labels li {
+      margin: 0.25em;
+      border-radius: 0.2em;
+      padding: 0.25em 0.5em; }
+      .story .story-labels li.label {
+        background: #FEDDF6;
+        color: #C11AA1; }
+      .story .story-labels li.epic {
+        background: #84e2fb;
+        color: #0869b2; }
 
 body {
   margin: 0;

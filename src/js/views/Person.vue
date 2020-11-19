@@ -27,6 +27,7 @@ export default class Person extends Vue {
 
   private stories: Pivotal.Story[];
   private points: number;
+  public abortCurrentSearch = false;
 
   constructor() {
     super();
@@ -34,20 +35,39 @@ export default class Person extends Vue {
     this.points = 0;
   }
 
+  get query(): string {
+    return `(label:"${this.label}"+OR+state:started,finished,delivered,rejected)`
+            + `+AND+(owner:"${this.person.initials}")`;
+  }
+
+  async updated(): Promise<void> {
+    console.log(`updated(${this.label})`);
+  }
+
   async mounted(): Promise<void> {
-    let query = `(label:"${this.label}"+OR+state:started,finished,delivered,rejected)`
-              + `+AND+(owner:"${this.person.initials}")`;
+    console.log('mounted()');
 
     for (let id of this.projectIds) {
-      let searchResults = await this.$pivotal.search(id, query, 30 * MINUTES, 1 * SECONDS);
-
-      if (searchResults) {
-        this.stories = this.stories.concat(searchResults.stories.stories);
+      if (this.abortCurrentSearch) {
+        console.log('Abort further searches.');
+        break;
       }
-    }
 
-    for (let story of this.stories) {
-      this.points += story.estimate || 0;
+      await this.getStories(id);
+    }
+  }
+
+  async getStories(projectId: number): Promise<void> {
+    let numSiblings = this.$parent.$children.length;
+
+    let searchResults = await this.$pivotal.search(projectId, this.query, 30 * MINUTES, numSiblings * SECONDS / 2);
+
+    if (searchResults && searchResults.stories) {
+      this.stories = this.stories.concat(searchResults.stories.stories);
+
+      for (let story of searchResults.stories.stories) {
+        this.points += story.estimate || 0;
+      }
     }
   }
 }

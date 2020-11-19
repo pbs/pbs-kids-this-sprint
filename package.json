@@ -50,7 +50,7 @@
     "start": "npm test",
     "test": "npm run watch:js & npm run watch:css",
     "watch:css": "nodemon -e scss -x \"npm run build:css\"",
-    "watch:js": "webpack --env.dev --watch",
+    "watch:js": "webpack --env.dev --watch --progress",
     "== INSTALL =========================================================": "",
     "postinstall": "ln -sf ../../scripts/pre-commit.sh .git/hooks/pre-commit"
   }

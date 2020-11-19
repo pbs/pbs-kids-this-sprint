@@ -7,7 +7,14 @@
       <span :class="'story-type ' + story.story_type"></span>
       <span :class="'story-points estimate-' + this.story.estimate"></span>
     </header>
+
     <div v-show="revealDescription" class="story-description" v-html="storyDescription"></div>
+
+    <ul class="story-labels">
+      <li :class='label.kind' v-for='label in story.labels' :key='label.index'>
+        {{label.name}}
+      </li>
+    </ul>
   </article>
 </template>
 
@@ -36,6 +43,8 @@ export default class Story extends Vue {
   }
 
   private get storyDescription(): string {
+    if (!this.story.description) return '';
+
     return this.$markdown.render(this.story.description);
   }
 
