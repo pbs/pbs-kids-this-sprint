@@ -1,7 +1,7 @@
 const Pivotal = require('./pivotal.js');
 const fs = require('fs');
 const { parse } = require('json2csv');
-const sprintLabel = 'sprint 116';
+const sprintLabel = 'sprint 140';
 
 const pivotal = new Pivotal(process.env.PIVOTAL_TOKEN);
 
@@ -46,7 +46,23 @@ const buildCsv = async () => {
 
   console.log(`Final Story Count: ${allStories.length}`);
 
-  const csv = parse(allStories);
+  console.log('Formatting Stories...');
+
+  const formattedStories = allStories.map((story) => {
+    return {
+      'Project': story.project,
+      'Type': story.story_type,
+      'Name': story.name,
+      'URL': story.url,
+      'Current State': story.current_state,
+      'Estimate': story.estimate,
+      'Requestor': story.requestor,
+      'Owners': story.owners,
+      'Labels': story.labels,
+    };
+  });
+
+  const csv = parse(formattedStories);
 
   fs.writeFile('stories.csv', csv, function(err) {
     if (err) {
